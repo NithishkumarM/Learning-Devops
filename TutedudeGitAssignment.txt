@@ -1,0 +1,123 @@
+1. Create a new GitHub repository.
+Clone the repository to your local machine using SSH (generate an SSH key if needed, add the public key to your GitHub account).
+Create a new branch named after your username (e.g., Tutedude).
+Add your Flask project files to this branch.
+Commit the changes and merge the branch into the main branch.
+
+Answer:
+ssh-keygen -t rsa -b 4096 -C "nithishkumar8341@gmail.com"
+cat ~/.ssh/id_rsa.pub
+git clone git@github.com:your-username/flask-project.git
+cd flask-project
+git checkout -b feet-1
+git add .
+git commit -m "Added Flask project files"
+git push origin feet-1
+git checkout main
+git merge feet-1
+git push origin main
+
+
+2. Create a new branch named <your_name>_new (e.g., Tutedude_new).
+Update the content of the JSON file used for the /api route in this branch.
+Merge the <your_name>_new branch into the main branch.
+If there are conflicts during the merge, resolve them by accepting the changes from the <your_name>_new branch.
+Add the resolved changes to the staging area, commit them, and push the updates to the remote repository.
+
+Answer:
+git checkout -b feet-2
+git add path/to/api.json
+git commit -m "Updated JSON file for /api route"
+git push origin feet-2
+git checkout main
+git merge feet-2
+Resolved merge conflicts and updated
+git add path/to/api.json
+git commit -m "Resolved merge conflict by keeping feet-2 changes"
+git push origin main
+
+
+3. Branch Creation:
+Create two branches: master_1 and master_2 from the main branch.
+Feature Development in master_1:
+In the master_1 branch, create a To-Do Page in the frontend.
+The page should contain a form with the following fields:
+Item Name
+Item Description
+Backend API in master_2:
+In the master_2 branch, create a backend route named /submittodoitem.
+This route will:
+Accept itemName and itemDescription via a POST request.
+Store these details in a MongoDB database.
+Merging Changes:
+Merge the changes from both master_1 and master_2 into the main branch.
+
+Answer:
+git checkout main
+git checkout -b master_1
+git checkout main
+git checkout -b master_2
+done the changes (created a To-Do Page)
+git add .
+git commit -m "Added To-Do Page with form"
+git push origin master_1
+git checkout master_2
+create a backend route named /submittodoitem - done
+git add .
+git commit -m "Added /submittodoitem backend route with MongoDB integration"
+git push origin master_2
+git checkout main
+git merge master_1
+git merge master_2
+git add .
+git commit -m "Resolved merge conflicts and merged master_1 and master_2"
+git push origin main
+
+
+4. Enhancing the To-Do Form in master_1:
+In the master_1 branch, add the following fields to the To-Do form:
+Item ID
+Item UUID
+Item Hash
+Committing in Sequence:
+Add and commit each field separately in the following order:
+First commit: Add Item ID field.
+Second commit: Add Item UUID field.
+Third commit: Add Item Hash field.
+Merging to main:
+Merge the master_1 branch into the main branch.
+Git Reset and Commit Deletion:
+In the main branch, use Git Reset to roll back to the commit where only the Item ID field was added.
+Use git reset --soft to ensure changes remain staged.
+Re-commit this state to the main branch.
+Merge this updated state to the main branch.
+Rebasing Changes:
+Rebase the updated changes in the main branch to the master_1 branch.
+Clarification:
+During rebasing, preserve individual commits to maintain the commit history for each change (i.e., do not squash commits).
+Use git rebase main master_1 to integrate changes from the main branch back into the master_1 branch.
+
+Answer:
+git checkout master_1
+Edited To-Do form with Item ID
+git add path/to/todo_form.html
+git commit -m "Added Item ID field to To-Do form"
+Added Item UUID
+git add path/to/todo_form.html
+git commit -m "Added Item UUID field to To-Do form"
+Added Item hash
+git add path/to/todo_form.html
+git commit -m "Added Item hash field to To-Do form"
+git push origin master_1
+git checkout main
+git merge master_1
+git push origin main
+git log
+git reset --soft b91ad659db513
+git commit -m "Re-commit To-Do form with only Item ID field"
+git push origin main --force
+git checkout master_1
+git rebase main
+
+
+Submission Guidelines -: Attach Screenshots or command along with explanation and submit in doc(google doc or microsoft doc) format , also share link of your github repo
